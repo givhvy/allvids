@@ -1,8 +1,23 @@
+import { motion } from 'framer-motion';
 import './PromptCard.css';
 
-export default function PromptCard({ prompt }) {
+export default function PromptCard({ prompt, index }) {
   return (
-    <a href={prompt.link} className="card">
+    <motion.a 
+      href={prompt.link} 
+      className="card"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ 
+        duration: 0.5, 
+        delay: index * 0.1,
+        ease: "easeOut"
+      }}
+      whileHover={{ 
+        y: -8,
+        transition: { duration: 0.3 }
+      }}
+    >
       <div className="card-image-wrapper">
         <img src={prompt.thumbnail} alt={prompt.title} className="card-image" loading="lazy" />
         <div className="play-icon">

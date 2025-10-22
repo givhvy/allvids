@@ -11,10 +11,9 @@
 }
 
 .card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(205, 252, 57, 0.4);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(205, 252, 57, 0.2);
-    background-color: rgba(28, 33, 40, 0.8);
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2), 0 0 0 1px rgba(99, 102, 241, 0.3);
+    background-color: rgba(30, 41, 59, 0.8);
 }
 
 .card-image-wrapper {
@@ -57,7 +56,7 @@
 }
 
 .card:hover .play-icon {
-    background-color: rgba(205, 252, 57, 0.95);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-blue));
     border-color: var(--primary-color);
     transform: translate(-50%, -50%) scale(1.15);
 }
@@ -71,7 +70,7 @@
 }
 
 .card:hover .play-icon svg {
-    fill: #0A0E13;
+    fill: white;
 }
 
 .card-badge {
@@ -85,8 +84,36 @@
     text-transform: capitalize;
     letter-spacing: 0.3px;
     z-index: 10;
-    background-color: var(--primary-color);
-    color: #0A0E13;
+}
+
+.badge-beginner {
+    background-color: var(--beginner-color);
+    color: white;
+}
+
+.badge-advanced {
+    background-color: var(--advanced-color);
+    color: white;
+}
+
+.badge-ai-agents {
+    background-color: var(--ai-agents-color);
+    color: white;
+}
+
+.badge-full-stack {
+    background-color: var(--full-stack-color);
+    color: white;
+}
+
+.badge-prompting {
+    background-color: var(--prompting-color);
+    color: white;
+}
+
+.badge-ai-automation {
+    background-color: var(--ai-automation-color);
+    color: white;
 }
 
 .card-content {

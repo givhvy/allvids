@@ -87,7 +87,6 @@ export default function DarkVeil({
   
   useEffect(() => {
     const canvas = ref.current;
-    const parent = canvas.parentElement;
 
     const renderer = new Renderer({
       dpr: Math.min(window.devicePixelRatio, 2),
@@ -114,8 +113,14 @@ export default function DarkVeil({
     const mesh = new Mesh(gl, { geometry, program });
 
     const resize = () => {
-      const w = parent.clientWidth,
-        h = parent.clientHeight;
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      
+      // Set canvas display size
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      
+      // Set renderer size
       renderer.setSize(w * resolutionScale, h * resolutionScale);
       program.uniforms.uResolution.value.set(w, h);
     };

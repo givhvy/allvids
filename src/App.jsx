@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react';
-import DarkVeil from './components/DarkVeil';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import SearchFilter from './components/SearchFilter';
@@ -33,16 +32,7 @@ function App() {
   }, [searchTerm, activeFilter]);
 
   return (
-    <>
-      <DarkVeil 
-        hueShift={120}
-        noiseIntensity={0.03}
-        speed={0.3}
-        warpAmount={0.2}
-        resolutionScale={0.8}
-      />
-      
-      <div className="app-content">
+    <div className="app-content">
         <Header />
         <Hero />
         <SearchFilter
@@ -57,8 +47,8 @@ function App() {
           <div className="container">
             {filteredPrompts.length > 0 ? (
               <div className="cards-grid">
-                {filteredPrompts.map(prompt => (
-                  <PromptCard key={prompt.id} prompt={prompt} />
+                {filteredPrompts.map((prompt, index) => (
+                  <PromptCard key={prompt.id} prompt={prompt} index={index} />
                 ))}
               </div>
             ) : (
@@ -70,7 +60,6 @@ function App() {
           </div>
         </main>
       </div>
-    </>
   );
 }
 
