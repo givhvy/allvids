@@ -1,173 +1,261 @@
-# BuildLoop Prompts Library - Clone
+# BuildLoop Prompts Library - React Version
 
-Clone hoàn chỉnh của trang web https://build-loop.ai/prompts với thiết kế hiện đại và responsive.
+Clone hoàn chỉnh của trang web https://build-loop.ai/prompts được build với **React + Vite** và **DarkVeil WebGL Background**.
 
 ## ✨ Tính năng
 
-- 🎨 Giao diện tối (dark mode) hiện đại và đẹp mắt
-- 🌊 **Animated CSS Background** - Gradient orbs với smooth floating animations
-- ✍️ **Space Grotesk Font** - Typography chuyên nghiệp
-- 🔍 Tìm kiếm prompts theo từ khóa
-- 🏷️ Lọc theo danh mục (Beginner, Advanced, AI Agents, Full Stack, prompting, AI & Automation)
-- 📱 Responsive design - hoạt động tốt trên mọi thiết bị
-- ⚡ Hiệu ứng hover và animation mượt mà
-- 🎯 Grid layout tự động điều chỉnh
-- 🎭 Backdrop filter blur cho header
+- ⚛️ **React 18 + Vite** - Fast Refresh và HMR cực nhanh
+- 🌊 **DarkVeil WebGL Background** - CPPN Neural Network patterns animated
+- ✍️ **Space Grotesk Font** - Typography chuyên nghiệp từ Google Fonts
+- 🔍 **Real-time Search** - Tìm kiếm prompts tức thì
+- 🏷️ **Category Filtering** - 7 danh mục (Beginner, Advanced, AI Agents, etc.)
+- 📱 **Fully Responsive** - Hoạt động hoàn hảo trên mọi thiết bị
+- ⚡ **Performance Optimized** - useMemo hooks, lazy loading images
+- 🎨 **Modern UI/UX** - Smooth animations, hover effects, backdrop blur
+- 🎯 **CSS Grid Layout** - Tự động điều chỉnh theo màn hình
 
-## 🚀 Cách sử dụng
+## 🚀 Cài đặt và Chạy
 
-1. Mở file `index.html` trong trình duyệt web
-2. Hoặc sử dụng Live Server trong VS Code
+### Prerequisites
+- Node.js 18+ 
+- npm hoặc yarn
 
-### Sử dụng Live Server (khuyên dùng)
-
-```bash
-# Nếu chưa cài đặt, cài đặt Live Server globally
-npm install -g live-server
-
-# Chạy Live Server
-live-server
-```
-
-### Hoặc sử dụng Python SimpleHTTPServer
+### Installation
 
 ```bash
-# Python 3
-python -m http.server 8000
+# Clone repository
+git clone https://github.com/givhvy/allvids.git
+cd allvids
 
-# Python 2
-python -m SimpleHTTPServer 8000
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-Sau đó mở trình duyệt và truy cập: `http://localhost:8000`
+Sau khi chạy `npm run dev`, mở trình duyệt tại: **http://localhost:5173**
 
-## 📁 Cấu trúc file
+## 📁 Cấu trúc Project
 
 ```
-├── index.html      # Cấu trúc HTML chính
-├── styles.css      # Styling, responsive design và animated background
-├── script.js       # JavaScript cho search, filter và render cards
-└── README.md       # Tài liệu hướng dẫn
+allvids/
+├── src/
+│   ├── components/
+│   │   ├── DarkVeil.jsx           # WebGL animated background
+│   │   ├── DarkVeil.css
+│   │   ├── Header.jsx             # Top navigation
+│   │   ├── Header.css
+│   │   ├── Hero.jsx               # Hero section với title
+│   │   ├── Hero.css
+│   │   ├── SearchFilter.jsx       # Search + filter buttons
+│   │   ├── SearchFilter.css
+│   │   ├── PromptCard.jsx         # Card component
+│   │   └── PromptCard.css
+│   ├── data/
+│   │   └── prompts.js             # Prompts data và categories
+│   ├── App.jsx                    # Main app component
+│   ├── App.css
+│   ├── main.jsx                   # React entry point
+│   └── index.css                  # Global styles
+├── backup/                        # Vanilla JS version backup
+├── public/
+├── index.html
+├── vite.config.js
+├── package.json
+└── README.md
 ```
 
-## 🎨 Thiết kế
+## 🎨 Tech Stack
 
-- **Font**: Space Grotesk (Google Fonts)
-- **Màu chủ đạo**: Lime Yellow (#CDFC39)
-- **Background**: CSS animated gradient orbs với floating effect
-- **Layout**: CSS Grid với responsive breakpoints
-- **Icons**: SVG inline
-- **Hình ảnh**: Placeholder từ Unsplash
-- **Effects**: 
-  - Backdrop filter blur cho header
-  - Card hover với transform và glow
-  - 4 animated gradient orbs chuyển động mượt mà
-  - Play button với color transition
+### Core
+- **React 18.3.1** - UI library
+- **Vite 6.0** - Build tool & dev server
+- **OGL 1.0.6** - Lightweight WebGL library cho DarkVeil
 
-## 🛠️ Tùy chỉnh
+### Styling
+- **CSS3** - Custom properties, Grid, Flexbox
+- **Space Grotesk** - Google Fonts
+- **Responsive Design** - Mobile-first approach
 
-### Thay đổi màu sắc
+### Features
+- **React Hooks** - useState, useMemo, useEffect, useRef
+- **Component-based Architecture** - Modular và reusable
+- **Performance** - Lazy loading, memoization, optimized renders
 
-Chỉnh sửa CSS variables trong file `styles.css`:
+## 🌊 DarkVeil Background
 
-```css
-:root {
-    --primary-color: #CDFC39;
-    --bg-dark: #0A0E13;
-    --bg-card: #1C2128;
-    /* ... */
-}
+DarkVeil sử dụng **CPPN (Compositional Pattern Producing Networks)** để tạo animated patterns trên WebGL canvas:
+
+### Tuning Parameters
+
+Edit trong `src/App.jsx`:
+
+```jsx
+<DarkVeil 
+  hueShift={120}              // Màu sắc (0-360)
+  noiseIntensity={0.03}       // Độ nhiễu (0-1)
+  speed={0.3}                 // Tốc độ animation (0-2)
+  warpAmount={0.2}            // Độ méo/warp (0-1)
+  resolutionScale={0.8}       // Chất lượng render (0.5-1)
+/>
 ```
 
-### Tùy chỉnh DarkVeil Background
+### Performance Tips
+- Giảm `resolutionScale` xuống 0.6-0.7 cho performance tốt hơn
+- Tăng `speed` để animation nhanh hơn
+- Adjust `opacity` trong `DarkVeil.css` (hiện tại: 0.4)
 
-Chỉnh sửa settings trong file `darkveil.js`:
+## 🛠️ Customization
+
+### Thêm/Sửa Prompts
+
+Edit file `src/data/prompts.js`:
 
 ```javascript
-const settings = {
-    hueShift: 120,              // Độ xoay màu (0-360)
-    noiseIntensity: 0.03,       // Độ nhiễu (0-1)
-    scanlineIntensity: 0,       // Độ mạnh scanline (0-1)
-    speed: 0.3,                 // Tốc độ animation (0-2)
-    scanlineFrequency: 0,       // Tần số scanline
-    warpAmount: 0.2,            // Độ méo (0-1)
-    resolutionScale: 0.8        // Chất lượng render (0.5-1)
-};
-```
-
-Hoặc tắt background bằng cách thay đổi opacity trong `styles.css`:
-
-```css
-.darkveil-canvas {
-    opacity: 0;  /* Tắt background */
-}
-```
-
-### Thêm/Sửa prompts
-
-Chỉnh sửa mảng `promptsData` trong file `script.js`:
-
-```javascript
-const promptsData = [
+export const promptsData = [
     {
         id: 1,
-        title: "Tiêu đề của bạn",
-        description: "Mô tả chi tiết",
+        title: "Your Title",
+        description: "Your description",
         category: "beginner",
         categoryLabel: "Beginner",
         promptsCount: 8,
-        thumbnail: "URL hình ảnh",
+        thumbnail: "image-url",
         link: "/prompts/1"
     },
-    // Thêm các prompts khác...
+    // Add more...
 ];
 ```
 
-## 📱 Responsive Breakpoints
+### Thay đổi Colors
 
-- **Desktop**: > 1200px
-- **Tablet**: 768px - 1200px
-- **Mobile**: < 768px
-- **Small Mobile**: < 480px
+Edit CSS variables trong `src/index.css`:
 
-## 🌟 Các tính năng nổi bật
+```css
+:root {
+    --primary-color: #CDFC39;    /* Lime yellow */
+    --bg-dark: #0A0E13;          /* Background */
+    --text-primary: #FFFFFF;      /* White text */
+    --text-secondary: #8B96A5;    /* Gray text */
+}
+```
 
-1. **Search động**: Tìm kiếm real-time khi gõ
-2. **Filter Categories**: Lọc theo 7 danh mục khác nhau
-3. **Smooth Animations**: Hiệu ứng hover, transform mượt mà
-4. **Gradient Effects**: Gradient cho tiêu đề và backgrounds
-5. **Card Design**: Cards với thumbnail, badge, và CTA button
+### Add New Categories
 
-## 📚 Dependencies
+1. Update `src/data/prompts.js`:
+```javascript
+export const categories = [
+    // ...existing
+    { id: 'new-category', label: 'New Category' }
+];
+```
 
-- **OGL (WebGL Library)**: v1.x - Lightweight WebGL framework cho DarkVeil effect
-- **Google Fonts**: Space Grotesk - Typography
-- **Unsplash**: Free stock photos cho thumbnails
+2. Add prompts với `category: 'new-category'`
 
-Tất cả dependencies được load từ CDN, không cần cài đặt gì thêm.
+## 📦 Build & Deploy
 
-## 🎯 WebGL Background
+### Production Build
 
-DarkVeil background sử dụng CPPN (Compositional Pattern Producing Networks) - một loại neural network để tạo patterns phức tạp và đẹp mắt. Effect này:
+```bash
+npm run build
+```
 
-- ✨ Chạy hoàn toàn trên GPU (WebGL)
-- 🚀 Performance cao, không ảnh hưởng đến UX
-- 🎨 Tự động điều chỉnh theo kích thước màn hình
-- 🌈 Hỗ trợ hue shifting, noise, và warp effects
+Generates optimized static files trong `dist/` folder.
 
-## 📝 Ghi chú
+### Deploy Options
 
-- Website clone này chỉ dành cho mục đích học tập và tham khảo
-- Tất cả nội dung và prompts đều là ví dụ
-- Hình ảnh sử dụng từ Unsplash (free stock photos)
-- DarkVeil effect adapted từ ReactBits.dev
+**Vercel** (Recommended):
+```bash
+npm install -g vercel
+vercel
+```
+
+**Netlify**:
+```bash
+npm install -g netlify-cli
+netlify deploy
+```
+
+**GitHub Pages**:
+1. Build: `npm run build`
+2. Deploy folder `dist/`
+
+## 🎯 Features Breakdown
+
+### Real-time Search
+- Tìm kiếm trong title, description, và category
+- No debounce - instant results
+- Case-insensitive matching
+
+### Category Filtering
+- 7 categories: All, Beginner, Advanced, AI Agents, Full Stack, prompting, AI & Automation
+- Active state với primary color
+- Combines với search
+
+### Responsive Design
+- **Desktop** (> 1200px): 3-column grid
+- **Tablet** (768-1200px): 2-column grid  
+- **Mobile** (< 768px): 1-column grid
+- Horizontal scroll cho filter buttons trên mobile
+
+### Card Hover Effects
+- Transform translateY(-6px)
+- Border glow với primary color
+- Image zoom 1.05x
+- Play button changes to lime background
+- "View All" arrow animation
+
+## 📝 Development Notes
+
+### Hot Module Replacement (HMR)
+Vite cung cấp instant HMR - changes reflect ngay lập tức không cần reload.
+
+### Component Structure
+- Mỗi component có file CSS riêng
+- Props drilling minimal
+- State management với useState ở App level
+
+### Performance Optimizations
+- `useMemo` cho filtered prompts
+- Lazy loading images với `loading="lazy"`
+- CSS transforms thay vì top/left positioning
+- WebGL canvas chỉ render 1 lần
 
 ## 🔗 Links
 
-- Trang web gốc: https://build-loop.ai/prompts
-- Clone by: Cursor AI
+- **Live Demo**: Deploy và chia sẻ link của bạn
+- **GitHub**: https://github.com/givhvy/allvids.git
+- **Original Site**: https://build-loop.ai/prompts
+- **OGL Library**: https://github.com/oframe/ogl
+- **DarkVeil Credit**: Adapted from ReactBits.dev
+
+## 📄 License
+
+This is a clone project for learning purposes. 
+
+## 👨‍💻 Author
+
+Created with ❤️ by **Cursor AI**
 
 ---
 
-Tạo với ❤️ bởi Cursor AI
+### Vanilla JS Version
 
+Version HTML/CSS/JS thuần được backup trong folder `backup/`. 
+
+Để sử dụng version đó:
+```bash
+cd backup
+# Open index.html in browser
+```
+
+---
+
+**Enjoy building với React! 🚀✨**
