@@ -39,7 +39,7 @@ export default function PromptCard({ prompt, index }) {
           </span>
         </div>
       </div>
-    </a>
+    </motion.a>
   );
 }
 
