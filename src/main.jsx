@@ -13,10 +13,10 @@ ReactDOM.createRoot(backgroundRoot).render(
   <React.StrictMode>
     <DarkVeil 
       hueShift={220}
-      noiseIntensity={0.02}
-      speed={0.25}
-      warpAmount={0.3}
-      resolutionScale={0.75}
+      noiseIntensity={0.08}
+      speed={0.6}
+      warpAmount={0.8}
+      resolutionScale={0.85}
     />
   </React.StrictMode>,
 );
